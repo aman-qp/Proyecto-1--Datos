@@ -1,22 +1,30 @@
-﻿using System; // Importa las clases necesarias para el sistema
-using System.Net.Sockets; // Importa las clases necesarias para la red
-using System.IO; // Importa las clases necesarias para la entrada/salida de datos
+﻿using System;
+using System.IO;
+using System.Net.Sockets;
+using System.Text;
+using Newtonsoft.Json;
 
 class Program {
-    static void Main(string[] args) {
-        TcpClient client = new TcpClient("localhost", 5000); // Crea un nuevo cliente TCP que se conectará al servidor en localhost en el puerto 5000
-        StreamWriter writer = new StreamWriter(client.GetStream()); // Crea un StreamWriter que nos permitirá enviar datos al servidor
-        StreamReader reader = new StreamReader(client.GetStream()); // Crea un StreamReader que nos permitirá leer los datos enviados por el servidor
+    static void Main() {
+        TcpClient client = new TcpClient("192.168.3.86", 12345); // Conecta al servidor
 
-        writer.WriteLine("Hola desde el cliente C#"); // Envía un mensaje al servidor
-        writer.Flush(); // Asegura que todos los datos se envíen al servidor
+        using (NetworkStream stream = client.GetStream()) {
+            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+            StreamWriter writer = new StreamWriter(stream, Encoding.UTF8) { AutoFlush = true };
 
-        String response = reader.ReadLine(); // Lee la respuesta del servidor
-        Console.WriteLine("Respuesta del servidor: " + response); // Imprime la respuesta del servidor en la consola
+            for (int i = 0; i < 3; i++) { // Envía 3 mensajes, puedes ajustar según necesites
+                // Enviar mensaje JSON al servidor
+                var messageObject = new { key = $"value{i}" };
+                string jsonMessage = JsonConvert.SerializeObject(messageObject);
+                writer.WriteLine(jsonMessage);
 
-        writer.Close(); // Cierra el StreamWriter
-        reader.Close(); // Cierra el StreamReader
-        client.Close(); // Cierra el cliente TCP
+                // Recibir respuesta del servidor
+                string response = reader.ReadLine();
+                Console.WriteLine("Respuesta del servidor: " + response);
+            }
+        }
+
+        client.Close();
     }
 }
 
