@@ -14,6 +14,6 @@ module com.example.interfazservidorjava {
     requires jaudiotagger;
     requires jlayer;
 
-    opens com.example.interfazservidorjava to javafx.fxml;
-    exports com.example.interfazservidorjava;
+    opens InterfazServidor to javafx.fxml;
+    exports InterfazServidor;
 }

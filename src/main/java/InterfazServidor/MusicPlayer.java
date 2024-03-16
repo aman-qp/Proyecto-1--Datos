@@ -1,4 +1,4 @@
-package com.example.interfazservidorjava;
+package InterfazServidor;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;

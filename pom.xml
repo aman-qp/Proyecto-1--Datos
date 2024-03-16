@@ -146,7 +146,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.interfazservidorjava/com.example.interfazservidorjava.HelloApplication
+                                com.example.interfazservidorjava/InterfazServidor.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

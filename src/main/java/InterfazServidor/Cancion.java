@@ -1,4 +1,4 @@
-package com.example.interfazservidorjava;
+package InterfazServidor;
 
 import java.io.File;
 

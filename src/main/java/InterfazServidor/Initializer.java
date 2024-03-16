@@ -1,8 +1,8 @@
-package com.example.interfazservidorjava;
+package InterfazServidor;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.beans.property.SimpleStringProperty;
+
 import java.util.HashSet;
 import java.util.Set;
 

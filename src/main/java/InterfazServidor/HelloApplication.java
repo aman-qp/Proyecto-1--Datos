@@ -1,5 +1,6 @@
-package com.example.interfazservidorjava;
+package InterfazServidor;
 
+import config.ConfiguracionApp;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ import java.util.UUID;
 
 public class HelloApplication extends Application {
 
-    public static final String RUTA_CANCIONES = "C:\\Users\\Usuario 2024\\Desktop\\Music";
+    public static final String RUTA_CANCIONES = ConfiguracionApp.obtenerRutaCanciones();
 
     @Override
     public void start(Stage stage) {
@@ -26,11 +27,9 @@ public class HelloApplication extends Application {
                 stage.show();
             } else {
                 System.out.println("La lista de canciones está vacía.");
-                // Puedes manejar la situación de una lista vacía aquí.
             }
         } catch (IOException e) {
             e.printStackTrace();
-            // Manejar la excepción de carga de FXML
         }
     }
 

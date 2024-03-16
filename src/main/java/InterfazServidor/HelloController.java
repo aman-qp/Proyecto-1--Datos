@@ -1,4 +1,4 @@
-package com.example.interfazservidorjava;
+package InterfazServidor;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
