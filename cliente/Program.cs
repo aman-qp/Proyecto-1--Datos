@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 class Program {
     static void Main() {
-        TcpClient client = new TcpClient("192.168.3.86", 12345); // Conecta al servidor
+        TcpClient client = new TcpClient("192.168.126.86", 12345); // Conecta al servidor
 
         using (NetworkStream stream = client.GetStream()) {
             StreamReader reader = new StreamReader(stream, Encoding.UTF8);

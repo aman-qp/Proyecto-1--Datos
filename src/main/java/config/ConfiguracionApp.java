@@ -12,7 +12,7 @@ public class ConfiguracionApp {
     static {
         // Carga las propiedades desde el archivo (puedes hacerlo en el constructor también)
         try {
-            InputStream entrada = new FileInputStream("C:\\Users\\Usuario 2024\\Downloads\\Proyecto-1--Datos-master\\src\\main\\java\\config\\config.ini");
+            InputStream entrada = new FileInputStream("C:\\Users\\Usuario 2024\\Desktop\\Proyecto-1--Datos\\src\\main\\java\\config\\config.ini");
             propiedades = new Properties();
             propiedades.load(entrada);
         } catch (IOException e) {
